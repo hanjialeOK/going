@@ -35,6 +35,48 @@ run it.
 go run hello.go
 ```
 
+## Install MySQL
+
+Install mysql.
+
+```c
+// For ubuntu 18.04
+apt install mysql-server
+// start mysql
+service mysql start
+```
+
+Change the password for mysql
+
+```c
+// login
+mysql -u root
+// change the password for mysql
+use mysql;
+update user set authentication_string='' where user='root';
+// newpassword: 123456
+alter user 'root'@'localhost' identified with mysql_native_password by '123456';
+// exit
+quit
+// restart mysql
+service mysql restart
+```
+
+Create database and table.
+
+```c
+mysql -u root -p
+create database gobase;
+use gobase;
+CREATE TABLE `account` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `name` varchar(20) NOT NULL,
+    `email` varchar(50) NOT NULL,
+    `password` varchar(30) NOT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+```
+
 ## VSCode
 
 Install an extension called `Go`.
