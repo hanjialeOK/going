@@ -1,5 +1,14 @@
 # Go Learning
 
+## Docker
+
+We recommend developing on ubuntu. Pull a base image from ubuntu:
+
+```c
+docker pull ubuntu:18.04
+docker run -it -p 0.0.0.0:8001:8001 ubuntu:18.04 /bin/bash
+```
+
 ## Install Go
 
 ```c
