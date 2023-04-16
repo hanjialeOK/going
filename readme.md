@@ -13,9 +13,13 @@ docker run -it -p 0.0.0.0:8001:8001 ubuntu:18.04 /bin/bash
 
 ```c
 wget https://dl.google.com/go/go1.20.2.linux-amd64.tar.gz
-tar -C /usr/local zxf go1.20.2.linux-amd64.tar.gz
+tar -C /usr/local -zxf go1.20.2.linux-amd64.tar.gz
 export PATH=$PATH:/usr/local/go/bin
-export GOPROXY=https://mirrors.aliyun.com/goproxy/
+// All Tools installed by go are in $GOPATH.
+export GOPATH=$PATH:/usr/local/go
+export PATH=$PATH:$GOPATH/bin
+// https://goproxy.cn is faster than aliyun.
+export GOPROXY=https://goproxy.cn
 ```
 
 make sure the environment variables above are available in your terminal!
